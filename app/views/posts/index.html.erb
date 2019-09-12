@@ -1,1 +1,30 @@
-<h1>Hello, you</h1>
+
+
+<h1>Posts</h1>
+
+<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Pages', pages_path %>
+
+<% @posts.each do |post| %>
+  <div><%= link_to(post.title, post) %></div>
+  <div><%= post.body %></div>
+  <div><p>Created <%= time_ago_in_words(post.created_at) %> ago</p></div>
+
+ 
+		   
+<div>
+<%= post.comments.count %> comments</div>
+</div>
+
+<% if post.user == current_user %>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+<% end %>
+
+
+
+
+
+
