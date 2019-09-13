@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :pages
+
+
+  resources :categories do
+    resources :posts
+  end
+  
   root to: "posts#index"
   
   # get    '/pages',          to: 'pages#index'

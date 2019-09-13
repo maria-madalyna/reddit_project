@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # before_action :set_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :category_id)
     end
 
     def set_post
