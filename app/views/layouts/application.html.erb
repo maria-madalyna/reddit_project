@@ -16,6 +16,7 @@
    <% end %>
 
    <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.username %></strong>.
     <ul>
      <li><%= link_to 'Submit link', new_link_path %></li>
      <li><%= link_to 'Account', edit_user_registration_path %></li>
