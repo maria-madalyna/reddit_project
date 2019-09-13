@@ -18,7 +18,7 @@
         <td><%= link.url %></td>
         <td><%= link_to 'Show', link %></td>
 
-        <% if link.user == current_user %>
+        <% if link.user == current_user %> <!-- only the logged in user is able to edit and delete his own links-->
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
         <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
