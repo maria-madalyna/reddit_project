@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.4'
-
+# Rails gem to allowing records to be votable
+gem 'acts_as_votable', '~> 0.12.1'
 # Add user authentification
 gem 'devise', '~> 4.7', '>= 4.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

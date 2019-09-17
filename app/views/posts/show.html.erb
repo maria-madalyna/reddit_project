@@ -2,8 +2,8 @@
 <p>
   <%= @post.body %>
 </p>
-
-<%= link_to 'Back', posts_path %>
+<!-- Likes and dislikes for every single post -->
+<%= render 'vote'%>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %>
@@ -19,4 +19,3 @@
 
 <h3>Leave a reply</h3>
 <%= render 'comments/form' %>
-		

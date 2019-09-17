@@ -5,7 +5,20 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+      put "dislike", to: "posts#downvote"
+    end
+  end
+
   resources :pages
+
+  resources :categories do
+    resources :posts
+  end
+  
   root to: "posts#index"
   
   # get    '/pages',          to: 'pages#index'
