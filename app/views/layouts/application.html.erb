@@ -11,36 +11,46 @@
 
   <body>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-   <% end %>
-
-   <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.username %></strong>.
-    <ul>
-     <li><%= link_to 'Submit link', new_link_path %></li>
-     <li><%= link_to 'Account', edit_user_registration_path %></li>
-     <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-    </ul>
-      <li><%= link_to 'New Post', new_post_path %></li>
-   
-    <% else %>
-      <ul>
-      <li><%= link_to 'Sign up', new_user_registration_path%></li>
-      <li><%= link_to 'Sign in', new_user_session_path %></li>
-      </ul>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
 
-    <li><%= link_to 'Home', posts_path %></li> 
-    <li><%= link_to 'Pages', pages_path %></li>
-    <li><%= link_to 'Links', links_path %></li>
 
+    <% if user_signed_in? %>
+    
+      
+    <div class="top-header">
+      <div class="logo"><%= image_tag("reddit_logo.png", size: "98x32", :alt => "reddit") %></div>
+      <li><%= link_to 'New Post', new_post_path, class: "button_1" %></li>
+      <li><%= link_to 'Submit link', new_link_path, class: "button_1" %></li>
+      <li><%= link_to 'Account', edit_user_registration_path, class: "button_1" %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button_2" %></li>
+      <div class="smaller-text">Logged in as: <li class="smaller-text"><%= current_user.username %></li></div>
+    </div>
+    
+      <% else %>
 
-  <%= render 'posts/nav' %> <!-- renders a nice, fixed nav on the top -->
+        <div class="top-header">
+          <div><%= link_to 'Log in', new_user_session_path, class: "button_1" %></div>
+          <div><%= link_to 'Sign up', new_user_registration_path, class: "button_2"%></div>
+        </div>
+      <% end %>
 
-  
+      
+
+    <div class="under-header">
+      <div class="wrap"><%= render 'posts/nav'%></div><!-- renders nav on the top -->
+        <nav>
+          <li><%= link_to 'Home', posts_path %></li>
+          <li><%= link_to 'Pages', pages_path %></li>
+          <li><%= link_to 'Links', links_path %></li>
+        </nav>
+    </div>
+    
 
     <%= yield %>
+    
+    
 
     
   </body>

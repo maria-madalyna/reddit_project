@@ -19,6 +19,8 @@ class PostsController < ApplicationController
   end
 
   def show
+  rescue ActiveRecord::RecordNotFound
+    flash[:notice] = "We couldn't find that post" #In case we deleted some post.
     @relative_posts = @post.category.posts
   end
 
