@@ -1,0 +1,52 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.trend {
+  display: flex;
+  background-color: #DAE0E6;
+  height: 20px;
+}
+
+.post-wrap {
+  background-color: $white ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px 10px;
+  padding: 50px 0;
+  width: 80%;
+}
+
+.post-info {
+  display: block;
+  width: 5%;
+}
+
+.post-text {
+  display: block;
+  width: 90%;
+  margin-right: 20px;
+}
+
+.comments {
+  color: rgb(27, 87, 216);
+  margin-right: 13px;
+}
+
+.votes {
+  display: block;
+  width: 40px;
+  padding: 10px;
+  margin-right: 10px;
+  border-right: 1px solid rgb(212, 211, 211);
+  
+}
+
+.smaller-text {
+  font-size: 13.5px;
+  color: rgb(68, 4, 4);
+}

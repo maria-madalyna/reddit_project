@@ -1,0 +1,25 @@
+body {
+  display:flex;
+  flex-direction: column;
+  background-color: #DAE0E6 ;
+  @include body-font;
+  
+}
+.title {
+  background-color: #DAE0E6 ;
+  display: block;
+  color: rgb(82, 82, 82);
+  margin-left: 1.2em;
+}
+
+.name{
+  color: grey;
+}
+.category {
+  font-size: 1em;
+  color: rgb(77, 19, 1)
+}
+
+.post-title {
+  font-size: 1.5em;
+}

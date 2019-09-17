@@ -1,41 +1,60 @@
 
+<div class="title">
+  <h4>Trends -  (here we'll have the most popular ones)</h4>
+</div>
 
-<h1>Latest</h1>
+<div class="trend">
+</div>
+
+
+<div class="title">
+  <h4>Latest posts</h4>
+</div>
 
 
 <% @posts.each do |post| %>
-  <div><%= link_to(post.title, post) %></div>
-  <div>Author: <%= post.user_id  && post.user.username%></div>
-  <div><%= post.category.name %></div>
-  <div><%= post.body %></div>
-  <%= post.get_upvotes.size%> Upvotes
-  <%= post.get_downvotes.size%> Downvotes
-  <div><p>Created <%= time_ago_in_words(post.created_at) %> ago</p></div>
- 
+
+  <div class="post-wrap">
+
+    <div class="votes">
+      <div>⇑ <%= post.get_upvotes.size%></div>
+      <div>⇓ <%= post.get_downvotes.size%></div>
+    </div>
   
-  <!-- Showing updates only when updates are made -->
+    <div class="post-text">
 
- <% if post.updated_at != post.created_at %>
-    Edited <%= time_ago_in_words(post.updated_at)%> ago
- <% end%>
+      <div class="category"><%= post.category.name %></div>
+      <div class="post-title"><%= link_to(post.title, post)%></div>
 
-  <div>
-  <%= post.comments.count %> comments</div>
-  </div>
+      <div>
+        <%= post.body %>
+        <div class="name">Created <%= time_ago_in_words(post.created_at) %> ago, 
+          by  <%= post.user_id  && post.user.username%>. 
+            <% if post.updated_at != post.created_at %> <!-- Showing updates only when updates are made -->
+              Edited <%= time_ago_in_words(post.updated_at)%> ago
+            <% end%>
+        </div>
 
-  <% if post.user == current_user %>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
+        <div class="post-buttons">
+          <% if post.user == current_user %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      </div>
 
- 
-  
+    </div>
+    
+    <div class = "post_info">
+      <span class="comments">💬 <%= post.comments.count%></span>
+    </div>
 
+  </div> 
 
- 
 
 <% end %>
 
+ 
 
 
 

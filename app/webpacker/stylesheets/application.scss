@@ -1,3 +1,107 @@
-a {
-  color:rgb(7, 250, 7);
-}
+
+/* --------------------------------------------------
+  Settings
+-------------------------------------------------- */
+
+@import "settings/variables";
+
+
+/* --------------------------------------------------
+  Tools
+-------------------------------------------------- */
+
+//@import "tools/mixins";
+//@import "tools/functions";
+//@import "tools/helpers";
+
+
+/* --------------------------------------------------
+  Generic
+-------------------------------------------------- */
+
+@import "generic/normalize";
+@import "generic/generic";
+@import "generic/font";
+
+/* --------------------------------------------------
+  Elements
+-------------------------------------------------- */
+
+@import "elements/body";
+@import "elements/link";
+@import "elements/list";
+
+//@import "form";
+
+/* --------------------------------------------------
+  Objects (Layout)
+-------------------------------------------------- */
+@import "objects/containers";
+@import "objects/header";
+//@import "objects/footer"
+
+/* --------------------------------------------------
+  Components 
+-------------------------------------------------- */
+
+@import "components/nav";
+@import "components/buttons";
+@import "components/icons";
+@import "components/images";
+
+
+
+
+/* --------------------------------------------------
+  Trumps
+-------------------------------------------------- */
+
+//@import "overrides";
+
+
+/*
+
+Essentially settings, generic and tools don't actually apply CSS 
+to anything they just import stuff and define variables. 
+Then in elements you start the very basic styling that applies broadly 
+(like styling the body tag, or all the link or paragraph tags). 
+Then you get progressively more specific with objects (layout), 
+components (specific blocks like card or list styles) and then trumps 
+which should overwrite other styles (like making your text green).
+
+Settings
+If you’re using a preprocessor like SCSS, this is your starting point. 
+In this layer you define your variables.
+
+Tools
+This layer can be used for your tooling. Think about mixins and functions that 
+need to be globally available. If they don’t need to be, just place them in the 
+layer where they’re needed.
+
+Generic
+In this layer, we house all the very high-level, far reaching styles. 
+This layer is often the same across all your projects as it contains 
+things like Normalize.css, CSS resets, and for example box-sizing rules.
+
+Elements
+In this layer we put styles for bare, unclassed HTML elements. 
+You could, for example, think about underlines for anchors on hover 
+or font-sizes for the different headings.
+
+Objects
+In the object layer we style the first elements that have classes. 
+Think about your containers, wrappers or rows. You can also define your grid here.
+
+Components
+The component layer is the place where most of the styling magic happens 
+as you will be styling your UI elements here. In component based frameworks 
+like Angular, Vue or React this is the layer where you import your styling 
+for each component if you don’t include them directly in your component.
+
+Trumps
+The trumps layer is the dirty layer. Even after structuring your styling 
+according to the ITCSS principles it can happen that you have to use 
+!important to override some third-party styling, for example. 
+Do that in this layer as this is the most specific, local and explicit layer.  
+
+*/
