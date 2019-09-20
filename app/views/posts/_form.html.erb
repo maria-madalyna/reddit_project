@@ -19,6 +19,9 @@
     <%= f.collection_select :user_id, User.all, :id, :username %>
   </div>
 
+  <div class="field">
+    <%= f.file_field :image %><br>
+  </div>
 
   <div>
     <%= f.submit %>

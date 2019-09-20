@@ -16,6 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 4px;
+  border: 1px solid rgb(197, 196, 196);
   margin: 0 10px 10px;
   padding: 50px 0;
   width: 80%;
@@ -30,6 +32,12 @@
   display: block;
   width: 90%;
   margin-right: 20px;
+}
+
+.post-body {
+  width: 95%;
+  
+
 }
 
 .comments {
@@ -50,3 +58,13 @@
   font-size: 13.5px;
   color: rgb(68, 4, 4);
 }
+
+.comments-layout{
+  color: rgb(117, 3, 22);
+  display: block;
+  width: 85%;
+  margin-left: 100px;
+  font-size: 14.5px;
+  
+}
+
