@@ -30,6 +30,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create(post_params)
+    @post.image.attach(params[:post][:image])
     if @post.save
       flash[:success] = "The post was created!"
     redirect_to @post

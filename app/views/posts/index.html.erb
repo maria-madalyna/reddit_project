@@ -1,6 +1,6 @@
 
 <div class="title">
-  <h4>Trends -  (here we'll have the most popular ones)</h4>
+  <h4>Trends -  (here we we'll have the most popular ones)</h4>
 </div>
 
 <div class="trend">
@@ -20,33 +20,44 @@
       <div>⇑ <%= post.get_upvotes.size%></div>
       <div>⇓ <%= post.get_downvotes.size%></div>
     </div>
-  
+    
+   
     <div class="post-text">
+    <div>
+      
+
 
       <div class="category"><%= post.category.name %></div>
       <div class="post-title"><%= link_to(post.title, post)%></div>
 
-      <div>
-        <%= post.body %>
+      <%= image_tag url_for(post.image), class: "picture"%>
+        <div class="post-body">
+          <%= post.body %>
+        </div>
+  
         <div class="name">Created <%= time_ago_in_words(post.created_at) %> ago, 
           by  <%= post.user_id  && post.user.username%>. 
             <% if post.updated_at != post.created_at %> <!-- Showing updates only when updates are made -->
               Edited <%= time_ago_in_words(post.updated_at)%> ago
             <% end%>
         </div>
+        
 
         <div class="post-buttons">
           <% if post.user == current_user %>
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
+          <div class="comments-layout"><%= render post.comments%></div>
         </div>
       </div>
+     
 
     </div>
     
     <div class = "post_info">
       <span class="comments">💬 <%= post.comments.count%></span>
+      
     </div>
 
   </div> 
