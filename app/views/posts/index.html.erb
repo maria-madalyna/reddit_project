@@ -14,11 +14,23 @@
 
 <% @posts.each do |post| %>
 
+
   <div class="post-wrap">
 
-    <div class="votes">
-      <div>⇑ <%= post.get_upvotes.size%></div>
-      <div>⇓ <%= post.get_downvotes.size%></div>
+    <div class="votes"> 
+     <!-- # <div>⇑ <%= post.get_upvotes.size%></div>
+      # <div>⇓ <%= post.get_downvotes.size%></div>  -->
+
+        <%= link_to like_post_path(post), method: :put do %>
+        ↑
+        <%= post.get_upvotes.size %>
+        <% end %>
+
+        <%= link_to dislike_post_path(post), method: :put do %>
+        ↓
+        <%= post.get_downvotes.size %>
+        <% end %>
+
     </div>
     
    
@@ -40,6 +52,7 @@
             <% if post.updated_at != post.created_at %> <!-- Showing updates only when updates are made -->
               Edited <%= time_ago_in_words(post.updated_at)%> ago
             <% end%>
+
         </div>
         
 
@@ -48,19 +61,49 @@
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
+
+          <hr>
+
+            <div class="comment-form">                                                      
+              <%= form_for ([post, post.comments.build]), :html=>{:class => 'submit-form'} do |f| %>    <!-- comments fields on front page-->
+                <div class="field">
+                  <div><strong><%= f.label :name %></strong></div>
+                  <%= f.text_field :name %>
+                </div>
+
+                <div class="field">
+                  <div>
+                    <strong><%= f.label :comment, class: "text-area" %></strong>
+                    <%= f.text_area :comment, size: "60x5", placeholder: "Type your comment here" %>
+                    </div>
+                </div> 
+
+                <div>
+                  <%= f.submit %>
+                </div>
+
+              <% end %> 
+            </div>
+
           <div class="comments-layout"><%= render post.comments%></div>
         </div>
       </div>
      
 
     </div>
+
+
     
     <div class = "post_info">
       <span class="comments">💬 <%= post.comments.count%></span>
       
     </div>
 
+
+
   </div> 
+
+ 
 
 
 <% end %>
