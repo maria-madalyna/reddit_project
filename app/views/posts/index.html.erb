@@ -36,13 +36,13 @@
    
     <div class="post-text">
     <div>
-      
-
-
       <div class="category"><%= post.category.name %></div>
       <div class="post-title"><%= link_to(post.title, post)%></div>
 
-      <%= image_tag url_for(post.image), class: "picture"%>
+        <% if post.image.attached? %>
+        <%= image_tag url_for(post.image), class: "picture"%>
+        <% end %>
+
         <div class="post-body">
           <%= post.body %>
         </div>

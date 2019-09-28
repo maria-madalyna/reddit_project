@@ -1,5 +1,8 @@
 <h1><%= @post.title %></h1>
-<%= image_tag @post.image %>
+<% if @post.image.attached? %>
+<image src="<%=(url_for(@post.image))%>">
+<% end %>
+
 <p>
   <%= @post.body %>
 </p>
