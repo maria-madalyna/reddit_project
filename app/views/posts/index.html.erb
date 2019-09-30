@@ -1,6 +1,5 @@
 
 <div class="title">
-  <h4>Trends -  (here we we'll have the most popular ones)</h4>
 </div>
 
 <div class="trend">
@@ -57,7 +56,8 @@
         
 
         <div class="post-buttons">
-          <% if post.user == current_user %>
+
+          <% if policy(post).update? %>
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>

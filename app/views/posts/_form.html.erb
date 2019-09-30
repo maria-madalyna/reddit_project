@@ -6,22 +6,22 @@
 
   <div class="field">
     <%= f.label :body %>
-    <%= f.rich_text_area :body, size: "60x15", placeholder: "Type your content here" %>
+    <%= f.rich_text_area :body, size: "90x35", placeholder: "Type your content here" %>
   </div>
 
   <div class="field">
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </div>
+<!--
+  # <div class="field">
+  #   <%= f.label :user_id %>
+  #   <%= f.collection_select :user_id, User.all, :id, :username %>
+  # </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :username %>
-  </div>
-
-  <div class="field">
-    <%= f.file_field :image %><br>
-  </div>
+  # <div class="field">
+  #   <%= f.file_field :image %><br>
+  # </div> -->
 
   <div>
     <%= f.submit %>

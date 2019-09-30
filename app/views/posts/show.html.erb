@@ -9,10 +9,14 @@
 <!-- Likes and dislikes for every single post -->
 <%= render 'vote'%>
 
+<% if policy(@post).update? %>
+  <%= link_to "Edit post", edit_post_path(@post) %>
+  <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }  %>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }  %>
+  
 
+<!-- # <%= link_to 'Edit', edit_post_path(@post) %> -->
 
 
 	

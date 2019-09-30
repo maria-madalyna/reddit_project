@@ -2,6 +2,24 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+  enum role: [:user, :vip, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+
+  
+
+  #   Then you can call:
+
+  # user.admin?
+  # user.admin!
+  # user.role
+  # user.user?
+  # user.vip?
+
+  def set_default_role
+    self.role ||= :admin
+  end
+
+
   has_one_attached :avatar
   has_many :links
   has_many :posts
@@ -43,6 +61,8 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end
+
+  
 
   # validates :name, presence: true
 
