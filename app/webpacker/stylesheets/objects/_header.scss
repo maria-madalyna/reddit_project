@@ -1,9 +1,16 @@
 .top-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: white;
   border-bottom: 1px solid rgb(239, 241, 243);
-  padding: 9px 20px 3px 10px;
+  
+}
+
+.wrap-buttons {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 5px;
 }
 
 .under-header {

@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 ruby '2.6.4'
+# # This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
+# gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 # Set of higher-level helper methods for image processing.
 gem 'image_processing', '~> 1.9', '>= 1.9.3'
 # Object oriented authorization for Rails applications

@@ -1,35 +1,25 @@
 
-<div class="title">
-</div>
+<div class="title"></div>
 
-<div class="trend">
-</div>
+<div class="trend"></div>
 
 
-<div class="title">
-  <h4>Latest posts</h4>
-</div>
+<div class="title"><h4>Latest posts</h4></div>
+
 
 
 <% @posts.each do |post| %>
-
-
   <div class="post-wrap">
 
     <div class="votes"> 
-     <!-- # <div>⇑ <%= post.get_upvotes.size%></div>
-      # <div>⇓ <%= post.get_downvotes.size%></div>  -->
-
-        <%= link_to like_post_path(post), method: :put do %>
-        ↑
-        <%= post.get_upvotes.size %>
-        <% end %>
-
-        <%= link_to dislike_post_path(post), method: :put do %>
-        ↓
-        <%= post.get_downvotes.size %>
-        <% end %>
-
+      <div class="group-vote">
+        <span class="like" data-id="<%= post.id %>">🔼</span> 
+        <span class="likes-count"><%= post.get_upvotes.size %></span>
+      </div>
+      <div class="group-vote">
+        <span class="dislike" data-id="<%= post.id %>">🔽</span>
+        <span class="likes-count"><%= post.get_downvotes.size %></span>
+      </div>
     </div>
     
    
@@ -37,26 +27,15 @@
     <div>
       <div class="category"><%= post.category.name %></div>
       <div class="post-title"><%= link_to(post.title, post)%></div>
-
-        <% if post.image.attached? %>
-        <%= image_tag url_for(post.image), class: "picture"%>
-        <% end %>
-
-        <div class="post-body">
-          <%= post.body %>
-        </div>
-  
+      <div class="post-body"><%= post.body %></div>
         <div class="name">Created <%= time_ago_in_words(post.created_at) %> ago, 
           by  <%= post.user_id  && post.user.username%>. 
             <% if post.updated_at != post.created_at %> <!-- Showing updates only when updates are made -->
               Edited <%= time_ago_in_words(post.updated_at)%> ago
             <% end%>
-
         </div>
         
-
         <div class="post-buttons">
-
           <% if policy(post).update? %>
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -64,41 +43,35 @@
 
           <hr>
 
-            <div class="comment-form">                                                      
-              <%= form_for ([post, post.comments.build]), :html=>{:class => 'submit-form'} do |f| %>    <!-- comments fields on front page-->
-                <div class="field">
-                  <div><strong><%= f.label :name %></strong></div>
-                  <%= f.text_field :name %>
-                </div>
-
-                <div class="field">
-                  <div>
-                    <strong><%= f.label :comment, class: "text-area" %></strong>
-                    <%= f.text_area :comment, size: "60x5", placeholder: "Type your comment here" %>
-                    </div>
-                </div> 
-
-                <div>
-                  <%= f.submit %>
-                </div>
-
-              <% end %> 
+        <div class="comment-form">                                                      
+          <%= form_for ([post, post.comments.build]), :html=>{:class => 'submit-form'} do |f| %>    <!-- comments fields on front page-->
+            <div class="field">
+              <div><strong><%= f.label :name %></strong></div>
+              <%= f.text_field :name %>
             </div>
+
+            <div class="field">
+              <div><strong><%= f.label :comment, class: "text-area" %></strong></div>
+                <%= f.text_area :comment, size: "60x5", placeholder: "Type your comment here" %>
+              </div>
+            </div> 
+
+            <div>
+              <%= f.submit %>
+            </div>
+
+          <% end %> 
+        </div>
 
           <div class="comments-layout"><%= render post.comments%></div>
         </div>
       </div>
-     
-
-    </div>
-
-
-    
-    <div class = "post_info">
+     <div class = "post_info">
       <span class="comments">💬 <%= post.comments.count%></span>
       
     </div>
 
+    </div>
 
 
   </div> 

@@ -1,8 +1,10 @@
 .comment-form {
-  color: red;
+  display: flex;
+  flex-direction: column-reverse;
+  color: rgb(139, 21, 21);
 }
 
 
 .submit-form { 
-  width: 200px;
+ 
 }

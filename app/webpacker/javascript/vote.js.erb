@@ -1,0 +1,7 @@
+<% if current_user.liked? @post %>
+   $(.liked-arrow)
+<% else %>
+  $(.unliked-arrow)
+<% end %>
+
+$('.likes-count').html("<%=@post.get_upvotes.size %>")

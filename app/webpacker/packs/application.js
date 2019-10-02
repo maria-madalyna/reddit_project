@@ -9,6 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 require("trix")
 require("@rails/actiontext")
+require('jquery')
+
+
 
 
 
@@ -21,4 +24,6 @@ require("@rails/actiontext")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import '../stylesheets/application'; 
+import '../javascript/vote';
+import '../stylesheets/application';
+
