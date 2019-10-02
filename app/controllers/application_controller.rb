@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def new?
-    user.admin? if !user.nil?
-  end
+
 
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
