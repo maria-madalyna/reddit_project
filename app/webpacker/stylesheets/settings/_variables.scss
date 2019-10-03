@@ -3,9 +3,12 @@
 // ======================================
 
 // Colors
-$white: #fff;
 
-$color-primary: #278da4; // teal
+$white: #fff;
+$grey: rgb(41, 40, 40);
+
+
+$color-button: #0079D3;
 $color-secondary: #b13c69; // dark violet red
 $color-accent: #eeea72;
 $color-shade: #eee;
@@ -22,6 +25,7 @@ $font-stack-secondary: 'Bree Serif', serif;
 
 // Layout
 $max-width: 1000px;
+$shadow: -1px -1px 20px 2px rgb(190, 190, 190);
 
 //Breakpoints
 

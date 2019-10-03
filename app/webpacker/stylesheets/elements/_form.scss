@@ -4,7 +4,25 @@
   color: rgb(139, 21, 21);
 }
 
+#comment_comment {
+  border: solid 2px rgb(207, 206, 206);
+  border-radius: 4px;
+}
 
-.submit-form { 
- 
+.field {
+  width: 800px;
+  background-color: white;
+  padding: 10px;
+  margin: 20px;
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  width: 40%;
+  padding: 30px;
+  margin: 30px;
+  border-radius: 5px;
 }

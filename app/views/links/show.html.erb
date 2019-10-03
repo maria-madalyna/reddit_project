@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="link-wrap">
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
+  <p id="link_title">
+    <strong>Title:</strong>
+    <div class="link-title"><%= @link.title %>
+  </p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+  <p id="link_url">
+    <strong>Url:</strong>
+    <div class ="link-url"><%= @link.url %>
+  </p>
+  <div class="link-paths">
+    <%= link_to 'Edit', edit_link_path(@link) %> |
+    <%= link_to 'Back', links_path %>
+  </div>
+
+</div>
