@@ -6,31 +6,12 @@
 
 @import "settings/variables";
 
-.field {
-  width: 800px;
-  background-color: white;
-  padding: 10px;
-  margin: 20px;
-}
-
-.form-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgb(241, 238, 238);
-  width: 50%;
-  padding: 10px;
-  margin: 10px;
-}
-
-
 
 /* --------------------------------------------------
   Tools
 -------------------------------------------------- */
 
-//@import "tools/mixins";
+@import "tools/mixins";
 //@import "tools/functions";
 //@import "tools/helpers";
 
@@ -76,7 +57,7 @@
   Trumps
 -------------------------------------------------- */
 
-//@import "overrides";
+@import "./trumps/overrides";
 
 
 /*

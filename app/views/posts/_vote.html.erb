@@ -1,5 +1,11 @@
-<span class="like" data-id="<%= @post.id %>">🔼</span> 
-<span class="likes-count"><%= @post.get_upvotes.size %></span>
-    | 
+
+<div class="vote-wrap">
+  <div class="group-vote">
+    <span class="like" data-id="<%= @post.id %>">🔼</span> 
+    <span class="likes-count"><%= @post.get_upvotes.size %></span>
+  </div>
+  <div class="group-vote">
     <span class="dislike" data-id="<%= @post.id %>">🔽</span>
     <span class="likes-count"><%= @post.get_downvotes.size %></span>
+  </div>
+</div>

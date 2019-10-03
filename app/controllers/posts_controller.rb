@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def index
     # @posts = Post.all.order(created_at: :desc)
     if params[:category].blank?
-      @posts = Post.all.order("created_at DESC")
+      @posts = Post.all.order("created_at ASC")
       else
       @category_id = Category.find_by(name: params[:category]).id
       @posts = Post.where(category_id: @category_id).order("created_at DESC")

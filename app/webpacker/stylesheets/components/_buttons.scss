@@ -6,7 +6,7 @@
   background: #ffffff;
   padding: 5px 20px;
   margin: 7px 20px 3px 0;
-  border: 1px solid #0079D3;
+  border: 1px solid $color-button;
   border-radius: 4px;
   display: inline-block;
   text-align: center;
@@ -26,9 +26,9 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    background: #0079D3;
+    background: $color-button;
     padding: 5px 20px;
-    border: 1px solid #0079D3;
+    border: 1px solid $color-button;
     border-radius: 4px;
     display: inline-block;
     
@@ -39,5 +39,25 @@
     background: #33a8ff;
     border-color: #33a8ff;
  
+    }
+
+    input[type=text] {
+      padding:5px; 
+      border:2px solid #ccc; 
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+  }
+    
+    input[type=text]:focus {
+        border-color:#333;
+    }
+    
+    input[type=submit] {
+        padding:5px 15px; 
+        background:#ccc; 
+        border:0 none;
+        cursor:pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px; 
     }
   

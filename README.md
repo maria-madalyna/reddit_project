@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Created with Ruby on Rails, Docker-compose, mySql and Webpacker.
 
-* Ruby version
+* Gems: 'image_processing', 'pundit', 'acts_as_votable', 'devise'
 
-* System dependencies
+  Posts, comments, pages  (without scaffold)
 
-* Configuration
+  Links
 
-* Database creation
+  ActionText, ActiveStorage for rich text and file uploading.
 
-* Database initialization
+  Minimal style, no Bootstrap or other component libraries.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+  The app:
+   - Posts;
+   - Comments;
+   - Navbar and Categories;
+   - Comments form and votes included on index and show page;
+   - Voting with Ajax;
+   - Static Pages;
+   - Links;
+   - Users(limited privileges), Admins;
+   - Showing authors, created at, updated at for each post;
+   - Inverted Triangle Architecture with imported partials for better styling.
 
-* ...
+

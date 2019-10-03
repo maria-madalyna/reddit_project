@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reddit</title>
+    <title>Not Reddit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +18,6 @@
 
     <% if user_signed_in? %>
     
-      
     <div class="top-header">
       <div class="logo"><%= image_tag("reddit_logo.png", size: "160x50", :alt => "reddit") %></div>
       <div class="wrap-buttons">
@@ -33,7 +32,7 @@
       <% else %>
 
         <div class="top-header">
-          <div><%= link_to 'Log in', new_user_session_path, class: "button_1" %></div>
+          <div id="log-in"><%= link_to 'Log in', new_user_session_path, class: "button_1" %></div>
           <div><%= link_to 'Sign up', new_user_registration_path, class: "button_2"%></div>
         </div>
       <% end %>
@@ -52,8 +51,6 @@
 
     <%= yield %>
     
-    
-
     
   </body>
 </html>

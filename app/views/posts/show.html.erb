@@ -1,4 +1,6 @@
-<h1><%= @post.title %></h1>
+<h3 id="notice"><%= @post.title %></h3>
+
+<div class="page-wrap">
 <% if @post.image.attached? %>
 <img src="<%=(url_for(@post.image))%>">
 <% end %>
@@ -6,8 +8,7 @@
 <p>
   <%= @post.body %>
 </p>
-<!-- Likes and dislikes for every single post -->
-<%= render 'vote'%>
+
 
 
 <% if policy(@post).update? %>
@@ -15,6 +16,8 @@
   <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }  %>
 <% end %>
 
+<!-- Likes and dislikes for every single post -->
+<%= render 'vote'%>
   
 	
 <h2><%= @post.comments.count %> Comments</h2>
@@ -24,3 +27,5 @@
 
 <h3>Leave a reply</h3>
 <%= render 'comments/form' %>
+
+</div>
