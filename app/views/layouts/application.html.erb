@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reddit</title>
+    <title>Not Reddit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,20 +18,21 @@
 
     <% if user_signed_in? %>
     
-      
     <div class="top-header">
-      <div class="logo"><%= image_tag("reddit_logo.png", size: "98x32", :alt => "reddit") %></div>
-      <li><%= link_to 'New Post', new_post_path, class: "button_1" %></li>
-      <li><%= link_to 'Submit link', new_link_path, class: "button_1" %></li>
-      <li><%= link_to 'Account', edit_user_registration_path, class: "button_1" %></li>
-      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button_2" %></li>
-      <div class="smaller-text">Logged in as: <li class="smaller-text"><%= current_user.username %></li></div>
+      <div class="logo"><%= image_tag("reddit_logo.png", size: "160x50", :alt => "reddit") %></div>
+      <div class="wrap-buttons">
+        <li><%= link_to 'New Post', new_post_path, class: "button_1" %></li>
+        <li><%= link_to 'Submit link', new_link_path, class: "button_1" %></li>
+        <li><%= link_to 'Account', edit_user_registration_path, class: "button_1" %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "button_2" %></li>
+        <div class="smaller-text">Logged in as: <li class="smaller-text"><%= current_user.username %></li></div>
+      </div>
     </div>
     
       <% else %>
 
         <div class="top-header">
-          <div><%= link_to 'Log in', new_user_session_path, class: "button_1" %></div>
+          <div id="log-in"><%= link_to 'Log in', new_user_session_path, class: "button_1" %></div>
           <div><%= link_to 'Sign up', new_user_registration_path, class: "button_2"%></div>
         </div>
       <% end %>
@@ -50,8 +51,6 @@
 
     <%= yield %>
     
-    
-
     
   </body>
 </html>

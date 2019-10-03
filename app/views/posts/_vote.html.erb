@@ -1,10 +1,11 @@
-  <%= link_to like_post_path(@post), method: :put do %>
-like
-<%= @post.get_upvotes.size %>
-<% end %>
 
-<%= link_to dislike_post_path(@post), method: :put do %>
-dislike
-<%= @post.get_downvotes.size %>
-<% end %>
- 
+<div class="vote-wrap">
+  <div class="group-vote">
+    <span class="like" data-id="<%= @post.id %>">🔼</span> 
+    <span class="likes-count"><%= @post.get_upvotes.size %></span>
+  </div>
+  <div class="group-vote">
+    <span class="dislike" data-id="<%= @post.id %>">🔽</span>
+    <span class="likes-count"><%= @post.get_downvotes.size %></span>
+  </div>
+</div>

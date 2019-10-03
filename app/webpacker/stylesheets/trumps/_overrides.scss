@@ -1,0 +1,26 @@
+#log-in {
+  margin-left: 20px;
+}
+
+#new-link {
+  padding: 20px;
+}
+
+.page-wrap {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  padding: 30px;
+  @include round-shadow;
+}
+
+#page-wrap {
+  margin-top: 30px;
+  @include round-shadow;
+}
+
+.vote-wrap {
+  width: 50px;
+}

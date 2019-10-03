@@ -1,16 +1,20 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
   respond_to :js, :json, :html
 
   # before_action :set_post, except: [:index, :new, :create]
 
+  # def admin_list
+  #   authorize Post # we don't have a particular post to authorize
+  #   # Rest of controller action
+  # end
+
   def index
     # @posts = Post.all.order(created_at: :desc)
-
     if params[:category].blank?
-      @posts = Post.all.order("created_at DESC")
+      @posts = Post.all.order("created_at ASC")
       else
       @category_id = Category.find_by(name: params[:category]).id
       @posts = Post.where(category_id: @category_id).order("created_at DESC")
@@ -30,8 +34,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create(post_params)
-    @post.image.attach(params[:post][:image])
-    if @post.save
+    # @post.image.attach(params[:post][:image])
+    if @post.save 
       flash[:success] = "The post was created!"
     redirect_to @post
     else 
@@ -44,25 +48,20 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    redirect_to @post
+    authorize @post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render :edit
+    end
   end
 
   def destroy
+    authorize @post
     @post.destroy
     redirect_to posts_path
   end
 
-  def upvote
-    @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    redirect_to @post #Updating the vote without reloading....... 
-  end
-    
-  def downvote
-    @post = Post.find(params[:id])
-    @post.downvote_by current_user
-    redirect_to @post
-  end
 
   private
 

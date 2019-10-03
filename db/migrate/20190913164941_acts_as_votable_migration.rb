@@ -19,4 +19,6 @@ class ActsAsVotableMigration < ActiveRecord::Migration[6.0]
   def self.down
     drop_table :votes
   end
+  
 end
+

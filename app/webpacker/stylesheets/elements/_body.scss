@@ -9,7 +9,7 @@ body {
   background-color: #DAE0E6 ;
   display: block;
   color: rgb(82, 82, 82);
-  margin-left: 1.2em;
+  margin-left: 17em;
 }
 
 .name{
@@ -17,9 +17,16 @@ body {
 }
 .category {
   font-size: 1em;
-  color: rgb(77, 19, 1)
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  width: 100px;
+  padding: 2px 0 0 20px;
+  background-color: red;
+  transform: skewX(-10deg);
+  border-radius: 4px;
+  margin-bottom:10px;
 }
 
 .post-title {
-  font-size: 1.5em;
+  font-size: 1.7em;
 }

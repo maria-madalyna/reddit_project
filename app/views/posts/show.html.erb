@@ -1,17 +1,24 @@
-<h1><%= @post.title %></h1>
-<%= image_tag @post.image %>
+<h3 id="notice"><%= @post.title %></h3>
+
+<div class="page-wrap">
+<% if @post.image.attached? %>
+<img src="<%=(url_for(@post.image))%>">
+<% end %>
+
 <p>
   <%= @post.body %>
 </p>
+
+
+
+<% if policy(@post).update? %>
+  <%= link_to "Edit post", edit_post_path(@post) %>
+  <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }  %>
+<% end %>
+
 <!-- Likes and dislikes for every single post -->
 <%= render 'vote'%>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }  %>
-
-
-
+  
 	
 <h2><%= @post.comments.count %> Comments</h2>
 <%= render @post.comments %>
@@ -20,3 +27,5 @@
 
 <h3>Leave a reply</h3>
 <%= render 'comments/form' %>
+
+</div>

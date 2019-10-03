@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.4'
 
+ruby '2.6.4'
+# # This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
+# gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+# Set of higher-level helper methods for image processing.
+gem 'image_processing', '~> 1.9', '>= 1.9.3'
+# Object oriented authorization for Rails applications
+gem 'pundit', '~> 2.1'
 # Rails gem to allowing records to be votable
 gem 'acts_as_votable', '~> 0.12.1'
 # Add user authentification
